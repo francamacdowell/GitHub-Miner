@@ -1,7 +1,7 @@
 
 # GitHub Miner
 
-This project will mine these following data:
+This project can mine these following data from any public GitHub project:
 
 - [Issues](https://developer.github.com/v3/issues/)
 - [Issues comments](https://developer.github.com/v3/issues/comments/)
