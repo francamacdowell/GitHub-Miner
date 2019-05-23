@@ -1,24 +1,23 @@
-from optparse import OptionParser
+import argparse
 from miner.github_miner import GitHubMiner
 
 # Create the CLI parser
-usage = "usage: %prog [options] arg"
-parser = OptionParser()
+parser = argparse.ArgumentParser(description='Get resources from GitHub project via API.')
 
 # Add the available options to the parser
-parser.add_option("-u", "--url", dest="url",  help="GitHub repository URL in format :user/:repository")
-parser.add_option("-p", "--path", dest="path", help="Path to the git repository")
-parser.add_option("--issues_output", dest="issues_output", help="Path to the Issues output directory")
-parser.add_option("--issues_events_output", dest="issues_events_output", help="Path to the Issues events output directory")
-parser.add_option("--issues_comments_output", dest="issues_comments_output", help="Path to the Issues comments output directory")
-parser.add_option("--pr_output", dest="pr_output", help="Path to the Pull Requests output directory")
-parser.add_option("--pr_events_output", dest="pr_events_output", help="Path to the Pull events output directory")
-parser.add_option("--pr_comments_output", dest="pr_comments_output", help="Path to the Pull comments output directory")
-parser.add_option("--pr_reviewers_output", dest="pr_reviewers_output", help="Path to the Pull reviewers output directory")
-parser.add_option("--username", dest="username", help="The GitHub username for authentication")
-parser.add_option("--token", dest="token", help="The GitHub token for authentication")
-parser.add_option("--params", dest="params", help="The GitHub params in format: {'param1': 'value1', 'param2': 'value2, ...'}")
-parser.add_option("--mine_data_output", dest="mine_data_output", help="Path to the mined data from all API project data")
+parser.add_argument("-u", "--url", dest="url",  help="GitHub repository URL in format :user/:repository", required=True)
+parser.add_argument("-p", "--path", dest="path", help="Path to the git repository")
+parser.add_argument("--issues_output", dest="issues_output", help="Path to the Issues output directory")
+parser.add_argument("--issues_events_output", dest="issues_events_output", help="Path to the Issues events output's directory")
+parser.add_argument("--issues_comments_output", dest="issues_comments_output", help="Path to the Issues comments output's directory")
+parser.add_argument("--pr_output", dest="pr_output", help="Path to the Pull Requests output's directory")
+parser.add_argument("--pr_events_output", dest="pr_events_output", help="Path to the Pull events output's directory")
+parser.add_argument("--pr_comments_output", dest="pr_comments_output", help="Path to the Pull comments output's directory")
+parser.add_argument("--pr_reviewers_output", dest="pr_reviewers_output", help="Path to the Pull reviewers output's directory")
+parser.add_argument("--username", dest="username", help="The GitHub username for authentication", required=True)
+parser.add_argument("--token", dest="token", help="The GitHub token for authentication", required=True)
+parser.add_argument("--params", dest="params", help="The GitHub params in format: {'param1': 'value1', 'param2': 'value2, ...'}")
+parser.add_argument("--mine_data_output", dest="mine_data_output", help="Path to the mined data from all API project data")
 
 # Parse the CLI args
 (options, args) = parser.parse_args()
